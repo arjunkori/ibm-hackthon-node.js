@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <% include partials/head.html %>
+        <% include partials/head.html %>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#basic-datatable th').hover(function() {
+                        $(this).css('cursor', 'pointer');
+                    });
+                });
+            </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.js"></script>
+
+
+
+</head>
+
+<body data-ng-app>
+    <!-- Preloader -->
+    <div class="loading-container">
+        <div class="loading">
+            <div class="l1">
+                <div></div>
+            </div>
+            <div class="l2">
+                <div></div>
+            </div>
+            <div class="l3">
+                <div></div>
+            </div>
+            <div class="l4">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader -->
+
+    <!-- Aside starts-->
+    <% include partials/sidebar.html %>
+        <!-- Aside Ends-->
+        <section class="content">
+            <!-- Header start-->
+            <% include partials/header.html %>
+                <!-- Header Ends -->
+                <!-- Wrapper start -->
+                <div class="warper container-fluid">
+
+                    <div class="page-header">
+                        <h1>Charts <small>DevExpress ChartJS</small></h1></div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Needs</div>
+                                <div class="panel-body">
+                                    <canvas id="bar-chart" height="200"></canvas>
+                                    <script>
+                                        var ctx = document.getElementById("bar-chart");
+                                        var myChart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ["Challenge", "Closeness", "Curiosity", "Excitement", "Harmony", "Liberty", ],
+                                                datasets: [{
+                                                    label: '# of Percent',
+                                                    data: [<%= percentages%> * 100, <%= closeness%> * 100, <%=curiosity%> * 100, <%= excitement%> * 100, <%= harmony%> * 100, <%= liberty%> * 100]
+                                                }]
+                                            },
+                                            options: {
+                                                scales: {
+                                                    yAxes: [{
+                                                        ticks: {
+                                                            beginAtZero: true
+                                                        }
+                                                    }]
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                    <!-- <div id="bar-chart" style="height:250px;"></div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Side by side Bar</div>
+                                <div class="panel-body">
+                                    <!-- <div id="side-by-side-bar" style="height:250px;"></div> -->
+                                    <table class="table no-margn">
+                                        <thead>
+                                            <tr>
+                                                <th>Nedds</th>
+                                                <th>Values</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Challenges</td>
+                                                <td>
+                                                    <%= percentages*100 %>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Closeness</td>
+                                                <td>
+                                                    <%= closeness *100%>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Curiosity 7</td>
+                                                <td>
+                                                    <%=curiosity * 100 %>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Excitement</td>
+                                                <td>
+                                                    <%= excitement*100%>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Harmoney</td>
+                                                <td>
+                                                    <%= harmony*100 %>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Liberty</td>
+                                                <td>
+                                                    <%= liberty*100 %>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Personali Insights (BIG 5)</div>
+                                <div class="panel-body">
+                                    <!--  <div id="barwidth-bar" style="height:250px;"></div> -->
+                                    <canvas id="do" height="100"></canvas>
+                                    <script>
+                                        var ctx = document.getElementById("do");
+                                        var myDoughnutChart = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: [
+                                                    "Openness",
+                                                    "Conscientiousness",
+                                                    "Extraversion",
+                                                    "Agreeableness",
+                                                    "Emotional range"
+                                                ],
+                                                datasets: [{
+                                                    data: [<%= Opensess%> * 100, <%= Conscientiousness%> * 100, <%=Extraversion%> * 100,
+                                                        <%= Agreeableness%> * 100, <%= Emotional%> * 100
+                                                    ],
+                                                    backgroundColor: [
+                                                        "#FF6384",
+                                                        "#36A2EB",
+                                                        "#FFCE56",
+                                                        "#33B2FF",
+                                                        "#FFFF00"
+                                                    ]
+                                                }]
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Auditor Review</div>
+                                <div class="panel-body">
+                                  <form  method="POST" class="form-inline" action="/customer/<%= customer._id %>">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label class="control-label">Please enter feedback for customer *</label>
+                                        <input type="hidden" name="_method" value="PUT">
+
+    									<input type="hidden" id="id" name="id" value=<%= customer._id %>/>
+                                        <textarea id='about' name='feedback' id='feedback' class="form-control"rows="5" cols="50" ><%= customer.auditor %></textarea>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                       
+                                    </div>
+                                    
+                                    
+                                    <hr class="dotted">
+                                    
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                                        
+                                    </div>
+                                    
+                                   </form>
+
+                                 </div>
+                             </div>                    	
+                    </div>
+
+                </div>
+                <!-- Warper Ends Here (working area) -->
+                <footer class="container-fluid footer">
+                </footer>
+        </section>
+        <!-- Content Block Ends Here (right box)-->
+        <!-- Footer JS Files start-->
+        <% include partials/footer.html %>
+            <!-- Footer JS Files end-->
+</body>
+
+</html>

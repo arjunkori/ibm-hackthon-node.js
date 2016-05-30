@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head.html %>
+
+      
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   
+</head>
+
+<body data-ng-app>
+    <!-- Aside starts-->
+    <% include partials/sidebar.html %>
+        <!-- Aside Ends-->
+        <section class="content">
+            <!-- Header start-->
+            <% include partials/header.html %>
+                <!-- Header Ends -->
+                <!-- Wrapper start -->
+                <div class="warper container-fluid">
+                    <div class="page-header">
+                        <!--<h1>Apply Loan <small>Please enter below details..</small></h1></div>-->
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Registration Form</div>
+                                <div class="panel-body">
+                                
+                                
+                                    <form  method="post" class="validator-form" action="/customer">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label class="control-label">Name </label>
+                                                <input type="text" class="form-control" name="name" id="name" />
+                                            </div>
+                                            <div class="col-lg-6">
+                                                 <label class="control-label">Age</label>
+                                                 <input type="text" class="form-control" name="age" id="age" />
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="control-label">Write yourself in 100 Characters ?</label>
+                                                <!--<input type="text" class="form-control" name="firstName" placeholder="First name" />-->
+                                                <textarea id='about' name='about' class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                   <label class="control-label">Education Qualification</label>
+                                        <input type="text" class="form-control" name="eduqualification" id="eduqualification" />
+                                    
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                   
+                                    
+                                     <div class="form-group">                                         
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                    <label class="col-lg-3 control-label">Employment Type</label>
+                                                    <div class="col-lg-9">
+                                                        <select class="form-control" name="employmentType" id ="employmentType">
+                                                            <option value="">-- Select a Employment type --</option>
+                                                            <option value="Self-Employee">Self-Employee</option>
+                                                            <option value="Salaried">Salaried</option>                                                        
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                           
+                                            
+                                              <div class="col-lg-6">
+                                                   <label class="col-lg-3 control-label">Total Work Exp</label>
+                                                     <input type="text" class="col-lg-9 form-control" name="totalWorkExp" id="totalWorkExp" />
+                                               </div>
+                                            </div>
+                                         </div>
+                                         
+                                         
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label class="control-label">How much amount you want to borrow ?</label>
+                                                <input type="text" class="form-control" name="loanAmount" id="loanAmount" />
+                                            </div>
+                                            <div class="col-lg-6">
+                                                 <label class="control-label">Loan Period</label>
+                                                 <input type="text" class="form-control" name="loanPeriod" id="loanPeriod" />
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="control-label">Purpose of Loan</label>
+                                        <input type="text" class="form-control" name="purposeOfLoan" />
+                                    </div>
+                                    
+                                    
+                                    
+                                    <!--<div class="form-group">
+                                        <label class="cr-styled">
+                                            <input type="checkbox">
+                                            <i class="fa"></i> 
+                                        </label>
+                                        I agree with all <a href="#">Terms &amp; Conditions</a>
+                                    </div>
+                                    -->
+                                    <hr class="dotted">
+                                    
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" name="signup" value="submit">Submit</button>
+                                        <!--<button type="button" class="btn btn-info" id="resetBtn">Reset form</button>-->
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                           
+                        </div>
+                     
+                    </div>
+
+                </div>
+                <!-- Warper Ends Here (working area) -->
+                <footer class="container-fluid footer">
+                    © 2016 All Rights Reserved, Applied Cloud Computing Pvt. Ltd.
+                </footer>
+        </section>
+        <!-- Content Block Ends Here (right box)-->
+        <!-- Footer JS Files start-->
+        <% include partials/footer.html %>
+            <!-- Footer JS Files end-->
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include partials/head.html %>
+
+      
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   
+</head>
+
+<body data-ng-app>
+    <!-- Aside starts-->
+    <% include partials/sidebar.html %>
+        <!-- Aside Ends-->
+        <section class="content">
+            <!-- Header start-->
+            <% include partials/header.html %>
+                <!-- Header Ends -->
+                <!-- Wrapper start -->
+                <div class="warper container-fluid">
+                    <div class="page-header">
+                        <h1>Lender Review <small>Let's get a quick overview...</small></h1></div>
+
+            <div class="row">
+                        <div class="col-md-12">
+                        
+                            <div class="panel panel-default">
+                                <div class="panel-heading">CUSTOMER INFORMATION</div>
+                                <div class="panel-body">
+                                    
+                                    
+                                      <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label class="control-label">Name </label>
+                                                <input type="text" class="form-control" name="name" id="name" value=<%= customer.name %> />
+                                            </div>
+                                            <div class="col-lg-6">
+                                                 <label class="control-label">Age</label>
+                                                 <input type="text" class="form-control" name="age" id="age" value=<%= customer.age %>/>
+                                            </div>
+                                        </div>
+                                        </div>
+                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="control-label">Write yourself in 100 Characters ?</label>
+                                                <!--<input type="text" class="form-control" name="firstName" placeholder="First name" />-->
+                                                <textarea id='about' name='about' class="form-control"><%= customer.about %></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                   <label class="control-label">Education Qualification</label>
+                                        <input type="text" class="form-control" name="eduqualification" id="eduqualification" value=<%= customer.educationQualification %> />
+                                    
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                   
+<!--                                    
+                                     <div class="form-group">                                         
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                    <label class="col-lg-3 control-label">Employment Type</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" value=<%= customer.employmentType %> id="employmentType" />
+                                                    </div>
+                                                </div>
+                                           
+                                            
+                                              <div class="col-lg-6">
+                                                   <label class="col-lg-3 control-label">Total Work Exp</label>
+                                                     <input type="text" class="col-lg-9 form-control" name="totalWorkExp" id="totalWorkExp" value=<%= customer.totalWorkExp %>/>
+                                               </div>
+                                            </div>
+                                         </div>-->
+                                         
+                                         
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label class="control-label">How much amount you want to borrow ?</label>
+                                                <input type="text" class="form-control" name="loanAmount" id="loanAmount" value=<%= customer.loanAmount %>/>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                 <label class="control-label">Loan Period</label>
+                                                 <input type="text" class="form-control" name="loanPeriod" id="loanPeriod" value=<%= customer.loanPeriod %>/>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="control-label">Purpose of Loan</label>
+                                        <input type="text" class="form-control" name="purposeOfLoan" value=<%= customer.purposeOfLoan %>/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="control-label">Auditor Review/Response *</label>
+                                                <!--<input type="text" class="form-control" name="firstName" placeholder="First name" />-->
+                                                <textarea id='review' name='review' class="form-control"><%= customer.auditor %></textarea>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+
+
+                                    
+                                    
+                                    
+                                    <!--<div class="form-group">
+                                        <label class="cr-styled">
+                                            <input type="checkbox">
+                                            <i class="fa"></i> 
+                                        </label>
+                                        I agree with all <a href="#">Terms &amp; Conditions</a>
+                                    </div>
+                                    -->
+                                    <hr class="dotted">
+                                    
+                                    
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+
+
+
+
+                </div>
+                
+                    <div class="row">
+                        <div class="col-md-12">
+                        
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Lend Money</div>
+                                <div class="panel-body">
+                                  <form  method="post" class="validator-form" action="/customer">
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label class="control-label">Lend Amount</label>
+                                        <input type="text" name="amount" id="amount" />
+                                            </div>
+                                            <div class="col-lg-6">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                       
+                                    </div>
+                                    
+                                    
+                                    <hr class="dotted">
+                                    
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                                        <!--<button type="button" class="btn btn-info" id="resetBtn">Reset form</button>-->
+                                    </div>
+                                    
+                                   </form>
+
+                                 </div>
+                             </div>
+                                    
+                       </div>
+                     </div>
+                                    
+                
+                <!-- Warper Ends Here (working area) -->
+                <footer class="container-fluid footer">
+                    © 2016 All Rights Reserved, Applied Cloud Computing Pvt. Ltd.
+                </footer>
+        </section>
+        <!-- Content Block Ends Here (right box)-->
+        <!-- Footer JS Files start-->
+        <% include partials/footer.html %>
+            <!-- Footer JS Files end-->
+</body>
+
+</html>
